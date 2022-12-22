@@ -16,7 +16,14 @@ class KvizFactory(DjangoModelFactory):
     
     naziv = factory.Faker('word')
     opisKviza = factory.Faker('sentence', nb_words=25)
-    kategorije = factory.SubFactory(KategorijaFactory)
+
+    @factory.post_generation
+    def kategorije(self, create, extracted, **kwargs):
+        if not create:
+            return
+        if extracted:
+            for kategorija in extracted:
+                self.kategorija.add(kategorija)
 
 
 class OpisPitanjaFactory(DjangoModelFactory):
@@ -31,6 +38,7 @@ class PitanjeFactory(DjangoModelFactory):
         model = Pitanje
     
     kviz = factory.SubFactory(KvizFactory)
+    naziv = factory.Faker('sentence')
     opis = factory.SubFactory(OpisPitanjaFactory)
     odgovor1 = factory.Faker('word')
     odgovor2 = factory.Faker('word')
