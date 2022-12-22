@@ -14,7 +14,7 @@ class KvizFactory(DjangoModelFactory):
     class Meta:
         model = Kviz
     
-    naziv = factory.Faker('word')
+    naziv = factory.Faker('sentence', nb_words=7)
     opisKviza = factory.Faker('sentence', nb_words=25)
 
     @factory.post_generation
