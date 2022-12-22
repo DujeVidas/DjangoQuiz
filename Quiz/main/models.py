@@ -35,7 +35,6 @@ class Pitanje(models.Model):
 
 
 class OpisPitanja(models.Model):
-    spajanjeNaPitanje = models.OneToOneField(Pitanje,on_delete=models.CASCADE, blank=True, null=True)
     tekst = models.TextField()
 
     def __str__(self) -> str:

@@ -5,14 +5,18 @@
 <br>
 {% for pitanje in pitanje_list %}
     <div class="pitanje">
-        <h3>{{ pitanje.naziv }}</h3>
-        <p>{{ pitanje.opis }}</p>
-        <h2>{{ pitanje.odgovor1 }}</h2>
-        <h2>{{ pitanje.odgovor2 }}</h2>
-        <h2>{{ pitanje.odgovor3 }}</h2>
-        <h2>{{ pitanje.odgovor4 }}</h2>
-        <p>{{ pitanje.tocan }}</p>
-        <p>{{ pitanje.savjet }}</p>
+        <p><strong>Naziv Pitanja:</strong> <span class="naziv">{{ pitanje.naziv }}</span></p>
+        <p><strong>Pripada Kvizu: </strong>  <span class="pripadaKvizu">{{ pitanje.kviz }}</span><p>
+        <p><strong>Opis Pitanja:</strong> {{ pitanje.opis }}</p>
+        <h4>Odgovori</h4>
+        <ol>
+            <li>)   {{ pitanje.odgovor1 }}</li>
+            <li>)   {{ pitanje.odgovor2 }}</li>
+            <li>)   {{ pitanje.odgovor3 }}</li>
+            <li>)   {{ pitanje.odgovor4 }}</li>
+        </ol>
+        <p><strong>Tocan odgovor: </strong>{{ pitanje.tocan }}</p>
+        <p><strong>Hint: </strong>{{ pitanje.savjet }}</p>
 
     </div>
 {% endfor %}

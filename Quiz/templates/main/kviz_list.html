@@ -5,9 +5,15 @@
 <br>
 {% for kviz in kviz_list %}
     <div class="kviz">
-        <h4>{{ kviz.naziv }}</h4>
-        <p>{{ kviz.opisKviza }}</p>
-
+        <p><strong>Naslov Kviza: </strong> <span class="naslov"> {{ kviz.naziv }}</span></p>
+        <p><strong>Opis Kviza:</strong> <span class="opisKviza">{{ kviz.opisKviza }}</span></p>
+        
+            <p><strong>Kategorije Kviza: </strong> 
+                {% for kategorija in kviz.kategorija.all %}
+                    <span class="kategorijaKviza">{{kategorija}}</span>
+                    {% endfor %}
+                
+            </p>
     </div>
 {% endfor %}
 {% endblock %}

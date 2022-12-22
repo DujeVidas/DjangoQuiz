@@ -5,8 +5,7 @@
 <br>
 {% for opis in opispitanja_list %}
     <div class="opis">
-        <h3>{{ opis.tekst }}</h3>
-
+        <p><strong>Opis Pitanja: </strong> <span class="opisPitanja">{{ opis.tekst }}</span></p>
     </div>
 {% endfor %}
 {% endblock %}

@@ -1,0 +1,18 @@
+.pitanje, .kviz, .kategorija, .opis{
+    border: 2px solid black;
+    margin-bottom: 50px;
+}
+.naziv, .naslov, .nazivKategorije{
+    font-size:24px;
+}
+
+.pripadaKvizu, .opisKviza, .opisPitanja{
+    font-size: 20px;
+}
+
+.kategorijaKviza{
+    font-size: 17px;
+    font-style: italic;
+    text-decoration: underline;
+}
+
