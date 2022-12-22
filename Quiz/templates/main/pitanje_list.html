@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<br>
+<h2> Pitanja </h2>
+<br>
+{% for pitanje in pitanje_list %}
+    <div class="pitanje">
+        <h3>{{ pitanje.naziv }}</h3>
+        <p>{{ pitanje.opis }}</p>
+        <h2>{{ pitanje.odgovor1 }}</h2>
+        <h2>{{ pitanje.odgovor2 }}</h2>
+        <h2>{{ pitanje.odgovor3 }}</h2>
+        <h2>{{ pitanje.odgovor4 }}</h2>
+        <p>{{ pitanje.tocan }}</p>
+        <p>{{ pitanje.savjet }}</p>
+
+    </div>
+{% endfor %}
+{% endblock %}

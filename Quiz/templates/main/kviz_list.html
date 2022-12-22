@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<br>
+<h2> Kvizovi </h2>
+<br>
+{% for kviz in kviz_list %}
+    <div class="kviz">
+        <h4>{{ kviz.naziv }}</h4>
+        <p>{{ kviz.opisKviza }}</p>
+
+    </div>
+{% endfor %}
+{% endblock %}

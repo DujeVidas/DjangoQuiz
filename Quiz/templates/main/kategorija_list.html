@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<br>
+<h2> Kategorije </h2>
+<br>
+{% for kategorija in kategorija_list %}
+    <div class="kategorija">
+        <h4>{{ kategorija.nazivKategorije }}</h4>
+
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<br>
+<h2> Opisi Pitanja </h2>
+<br>
+{% for opis in opispitanja_list %}
+    <div class="opis">
+        <h3>{{ opis.tekst }}</h3>
+
+    </div>
+{% endfor %}
+{% endblock %}
