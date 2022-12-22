@@ -21,3 +21,4 @@ class PitanjaList(ListView):
 
 class OpisiList(ListView):
     model = OpisPitanja
+

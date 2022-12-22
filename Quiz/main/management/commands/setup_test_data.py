@@ -32,8 +32,6 @@ class Command(BaseCommand):
         for _ in range(NUM_QUIZZES):
             n = random.randrange(1,NUM_CATEGORY)
             lista = random.sample(kategorije,n)
-            self.stdout.write(str(n))
-            self.stdout.write(str(list(lista)))
             kviz = KvizFactory(kategorije=lista)
 
         for _ in range(NUM_QUESTIONS):
