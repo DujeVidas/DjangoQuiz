@@ -68,6 +68,8 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/'
+
 WSGI_APPLICATION = 'Quiz.wsgi.application'
 
 
