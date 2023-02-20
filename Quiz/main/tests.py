@@ -90,5 +90,36 @@ class Testmodels(TestCase):
             nazivKategorije = 'Test-Naziv'
         )
 
+        self.quiz1 = Kviz.objects.create(
+            naziv = 'Test-Kviz',
+            opisKviza = 'Test opis kviza',
+        )
+        self.quiz1.kategorija.add(Kategorija.objects.get(id=1))
+
+        self.description1 = OpisPitanja.objects.create(
+            tekst = 'Random Test'
+        )
+
+        self.question1 = Pitanje.objects.create(
+            kviz = self.quiz1,
+            naziv = 'Test-Pitanje',
+            opis = self.description1,
+            odgovor1 = 'Test Odgovor1',
+            odgovor2 = 'Test Odgovor2',
+            odgovor3 = 'Test Odgovor3',
+            odgovor4 = 'Test Odgovor4',
+            tocan = 123,
+            savjet = 'Test Savjet'
+        )
+
     def test_category(self):
         self.assertEquals(self.category1.nazivKategorije, "Test-Naziv")
+
+    def test_quiz(self):
+        self.assertEquals(self.quiz1.naziv,"Test-Kviz")
+    
+    def test_description(self):
+        self.assertEquals(self.description1.tekst,"Random Test")
+    
+    def test_question(self):
+        self.assertEquals(self.question1.naziv,"Test-Pitanje")
