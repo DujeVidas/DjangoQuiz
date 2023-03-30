@@ -1,4 +1,5 @@
 {% load static %}
+{% load bootstrap %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +13,12 @@
 
     {% if user.is_authenticated %}
     <h1>My library</h1>
+    
+    <form action="{% url 'main:register' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="logout">Logout</button>
+    </form>
+
     <div id="sidebar">
         {% block sidebar %}
         <ul>
@@ -30,6 +37,14 @@
     </div>
     {% else %}
         <p>Niste prijavljeni.</p>
+        <a href="{% url 'main:login' %}" class="btn btn-primary">Login</a>
+
+        <form action="{% url 'main:register' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Register</button>
+          </form>
+          
+
     {% endif %}
     
 </body>

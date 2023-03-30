@@ -1,12 +1,14 @@
 from django.urls import path
 from main.views import *
 from . import views
-from django.views.generic import RedirectView
+from django.contrib.auth.views import LoginView
 
 app_name = 'main'  # here for namespacing of urls.
 
 urlpatterns = [
     path('',views.index, name = 'index'),
+    path('register',views.register, name = 'register'),
+     path('login/', LoginView.as_view(template_name='main/registration/login.html'), name='login'),
     #path('', RedirectView.as_view(url='kvizovi')),
     path('kategorije', KategorijeList.as_view(), name = 'kategorije'),
     path('kvizovi', KvizoviList.as_view(), name = 'kvizovi'),

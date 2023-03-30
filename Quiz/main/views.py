@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import ListView
 from main.models import *
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import *
 from .filters import *
 
@@ -32,7 +32,14 @@ def register(request):
 
     context = {'form': form}
 
-    return render(request, 'registration/register.html', context)
+    if request.user.is_authenticated:
+        context['logout_button'] = True
+
+    if request.method == 'POST' and 'logout' in request.POST:
+        logout(request)
+        return redirect('/')
+
+    return render(request, 'main/registration/register.html', context)
 
 
 class KategorijeList(ListView):
