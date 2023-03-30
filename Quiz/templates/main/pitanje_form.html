@@ -1,10 +1,13 @@
 {% extends "base_generic.html" %}
-{% block content %}
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit" class="btn btn-primary" name="Submit">
-</form>
+{% block content %}
+<div class="nav d-flex flex-column align-items-center">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" class="btn btn-primary" name="Submit">
+    </form>
+</div>
+
 
 {% endblock %}
