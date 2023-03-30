@@ -1,32 +1,31 @@
 {% load static %}
-{% load bootstrap %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'main\css\mdb.dark.min.css' %}">
     <title>{% block title %}Library{% endblock %}</title>
 </head>
 
 <body>
-    <h1>This is our homepage</h1>
-
     {% if user.is_authenticated %}
     <h1>My library</h1>
     
     <form action="{% url 'main:register' %}" method="post">
         {% csrf_token %}
-        <button type="submit" name="logout">Logout</button>
+        <button type="submit" class="btn btn-primary" name="logout">Logout</button>
     </form>
 
     <div id="sidebar">
         {% block sidebar %}
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/kategorije">Kategorije</a></li>
-            <li><a href="/kvizovi">Kvizovi</a></li>
-            <li><a href="/pitanja">Pitanja</a></li>
-            <li><a href="/opisi">Opis Pitanja</a></li>
+        <ul class="nav justify-content-center">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/kategorije" class="nav-link">Kategorije</a></li>
+            <li><a href="/kvizovi" class="nav-link">Kvizovi</a></li>
+            <li><a href="/pitanja" class="nav-link">Pitanja</a></li>
+            <li><a href="/opisi" class="nav-link">Opis Pitanja</a></li>
         </ul>
         {% endblock %}
     </div>
@@ -37,11 +36,15 @@
     </div>
     {% else %}
         <p>Niste prijavljeni.</p>
-        <a href="{% url 'main:login' %}" class="btn btn-primary">Login</a>
-
+        
+        <form action="{% url 'main:login' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+          <br>
         <form action="{% url 'main:register' %}" method="post">
             {% csrf_token %}
-            <button type="submit">Register</button>
+            <button type="submit" class="btn btn-primary">Register</button>
           </form>
           
 

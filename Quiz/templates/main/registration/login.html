@@ -1,4 +1,10 @@
-{% if form.errors %}
+{% load static %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'main\css\mdb.dark.min.css' %}"
+</head>
+<body>
+  {% if form.errors %}
     <h3>Unos nije ispravan.</h3>
 {% endif %}
 {% if next %}
@@ -21,6 +27,8 @@
         <td>{{ form.password }}</td>
       </tr>
     </table>
-    <input type="submit" value="login" />
+    <input type="submit" class="btn btn-primary" value="login" />
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
+</body>
+

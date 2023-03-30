@@ -25,15 +25,12 @@ def register(request):
 
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('base_generic.html')
+            return redirect('/')
 
     else:
         form = UserCreationForm()
 
     context = {'form': form}
-
-    if request.user.is_authenticated:
-        context['logout_button'] = True
 
     if request.method == 'POST' and 'logout' in request.POST:
         logout(request)
@@ -233,7 +230,3 @@ def deleteOpis(request, pk):
         opis.delete()
         return redirect('/opisi')
     return render(request,'main/opispitanja_delete.html', context)
-
-
-#Filter
-

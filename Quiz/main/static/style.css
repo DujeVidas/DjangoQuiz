@@ -1,5 +1,5 @@
 .pitanje, .kviz, .kategorija, .opis{
-    border: 2px solid black;
+    border: 2px solid white;
     margin-bottom: 50px;
 }
 .naziv, .naslov, .nazivKategorije{

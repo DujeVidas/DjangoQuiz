@@ -6,7 +6,7 @@
 <form action="" method="POST">
     {% csrf_token %}
     <a href="{% url 'main:opisi' %}">Cancel</a>
-    <input type="submit" name="Confirm">
+    <input type="submit" class="btn btn-danger" name="Confirm">
 </form>
 
 {% endblock %}

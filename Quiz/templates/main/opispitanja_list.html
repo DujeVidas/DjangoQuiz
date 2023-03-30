@@ -4,18 +4,18 @@
 <br>
 <h2> Opisi Pitanja </h2>
 <br>
-<a href="{% url 'main:create_opis' %}">Create Desc</a>
+<a href="{% url 'main:create_opis' %}" class="btn btn-success">Create Desc</a>
 <br>
 <br>
 <form method="get">
     {{ filter.form|bootstrap }}
-    <button type="submit">Search</button>
+    <button type="submit" class="btn btn-info">Search</button>
 </form>
 {% for opis in filter.qs %}
     <div class="opis">
         <p><strong>Opis Pitanja: </strong> <span class="opisPitanja">{{ opis.tekst }}</span></p>
-        <a href="{% url 'main:update_opis' opis.id %}"> Update</a>
-        <a href="{% url 'main:delete_opis' opis.id %}"> Delete</a>
+        <a href="{% url 'main:update_opis' opis.id %}" class="btn btn-primary"> Update</a>
+        <a href="{% url 'main:delete_opis' opis.id %}" class="btn btn-danger"> Delete</a>
     </div>
 {% endfor %}
 {% endblock %}

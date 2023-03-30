@@ -5,7 +5,7 @@
 
 <form action="" method="POST">
     {% csrf_token %}
-    <a href="{% url 'main:kategorije' %}">Cancel</a>
+    <a href="{% url 'main:kategorije' %}" class="btn btn-danger">Cancel</a>
     <input type="submit" name="Confirm">
 </form>
 

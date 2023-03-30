@@ -4,12 +4,12 @@
 <br>
 <h2> Kvizovi </h2>
 <br>
-<a href="{% url 'main:create_kviz' %}">Create Quiz</a>
+<a href="{% url 'main:create_kviz' %} " class="btn btn-success">Create Quiz</a>
 <br>
 <br>
 <form method="get">
     {{ filter.form|bootstrap }}
-    <button type="submit">Search</button>
+    <button type="submit" class="btn btn-info">Search</button>
 </form>
 {% for kviz in filter.qs %}
     <div class="kviz">
@@ -22,8 +22,8 @@
                     {% endfor %}
                 
             </p>
-            <a href="{% url 'main:update_kviz' kviz.id %}"> Update</a>
-            <a href="{% url 'main:delete_kviz' kviz.id %}"> Delete</a>
+            <a href="{% url 'main:update_kviz' kviz.id %}" class="btn btn-primary"> Update</a>
+            <a href="{% url 'main:delete_kviz' kviz.id %}" class="btn btn-danger"> Delete</a>
     </div>
 {% endfor %}
 {% endblock %}
