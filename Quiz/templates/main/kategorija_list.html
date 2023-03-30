@@ -1,12 +1,24 @@
 {% extends "base_generic.html" %}
+{% load bootstrap %}
 {% block content %}
 <br>
 <h2> Kategorije </h2>
 <br>
-{% for kategorija in kategorija_list %}
+<a href="{% url 'main:create_kategorija' %}">Create Category</a>
+<br>
+<br>
+<div class="container">
+    <form method="get">
+        {{ filter.form|bootstrap }}
+        <button type="submit" >Search</button>
+    </form>
+</div>
+
+{% for kategorija in filter.qs %}
     <div class="kategorija">
         <p><strong>Kategorija:</strong> <span class="nazivKategorije">{{ kategorija.nazivKategorije }}</span></p>
-
+        <a href="{% url 'main:update_kategorija' kategorija.id %}"> Update</a>
+        <a href="{% url 'main:delete_kategorija' kategorija.id %}"> Delete</a>
     </div>
 {% endfor %}
 {% endblock %}

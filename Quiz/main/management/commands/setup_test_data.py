@@ -10,9 +10,9 @@ from main.factory import (
 )
 
 NUM_CATEGORY = 5
-NUM_QUIZZES = 20
-NUM_QUESTIONS = 100
-NUM_EXPLANATION = 100
+NUM_QUIZZES = 10
+NUM_QUESTIONS = 30
+NUM_EXPLANATION = 30
 
 class Command(BaseCommand):
     help = "Generates test data"

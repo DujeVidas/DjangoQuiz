@@ -1,11 +1,21 @@
 {% extends "base_generic.html" %}
+{% load bootstrap %}
 {% block content %}
 <br>
 <h2> Opisi Pitanja </h2>
 <br>
-{% for opis in opispitanja_list %}
+<a href="{% url 'main:create_opis' %}">Create Desc</a>
+<br>
+<br>
+<form method="get">
+    {{ filter.form|bootstrap }}
+    <button type="submit">Search</button>
+</form>
+{% for opis in filter.qs %}
     <div class="opis">
         <p><strong>Opis Pitanja: </strong> <span class="opisPitanja">{{ opis.tekst }}</span></p>
+        <a href="{% url 'main:update_opis' opis.id %}"> Update</a>
+        <a href="{% url 'main:delete_opis' opis.id %}"> Delete</a>
     </div>
 {% endfor %}
 {% endblock %}

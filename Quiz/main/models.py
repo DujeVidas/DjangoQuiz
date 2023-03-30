@@ -35,7 +35,7 @@ class Pitanje(models.Model):
 
 
 class OpisPitanja(models.Model):
-    tekst = models.TextField()
+    tekst = models.CharField(max_length=255)
 
     def __str__(self) -> str:
         return self.tekst

@@ -1,9 +1,17 @@
 {% extends "base_generic.html" %}
+{% load bootstrap %}
 {% block content %}
 <br>
 <h2> Kvizovi </h2>
 <br>
-{% for kviz in kviz_list %}
+<a href="{% url 'main:create_kviz' %}">Create Quiz</a>
+<br>
+<br>
+<form method="get">
+    {{ filter.form|bootstrap }}
+    <button type="submit">Search</button>
+</form>
+{% for kviz in filter.qs %}
     <div class="kviz">
         <p><strong>Naslov Kviza: </strong> <span class="naslov"> {{ kviz.naziv }}</span></p>
         <p><strong>Opis Kviza:</strong> <span class="opisKviza">{{ kviz.opisKviza }}</span></p>
@@ -14,6 +22,8 @@
                     {% endfor %}
                 
             </p>
+            <a href="{% url 'main:update_kviz' kviz.id %}"> Update</a>
+            <a href="{% url 'main:delete_kviz' kviz.id %}"> Delete</a>
     </div>
 {% endfor %}
 {% endblock %}

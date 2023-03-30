@@ -8,6 +8,9 @@
 </head>
 
 <body>
+    <h1>This is our homepage</h1>
+
+    {% if user.is_authenticated %}
     <h1>My library</h1>
     <div id="sidebar">
         {% block sidebar %}
@@ -25,5 +28,9 @@
         {% block content %}
         {% endblock %}
     </div>
+    {% else %}
+        <p>Niste prijavljeni.</p>
+    {% endif %}
+    
 </body>
 </html>

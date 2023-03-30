@@ -1,9 +1,17 @@
 {% extends "base_generic.html" %}
+{% load bootstrap %}
 {% block content %}
 <br>
 <h2> Pitanja </h2>
 <br>
-{% for pitanje in pitanje_list %}
+<a href="{% url 'main:create_pitanje' %}">Create Question</a>
+<br>
+<br>
+<form method="get">
+    {{ filter.form|bootstrap }}
+    <button type="submit">Search</button>
+</form>
+{% for pitanje in filter.qs %}
     <div class="pitanje">
         <p><strong>Naziv Pitanja:</strong> <span class="naziv">{{ pitanje.naziv }}</span></p>
         <p><strong>Pripada Kvizu: </strong>  <span class="pripadaKvizu"> {{ pitanje.kviz }}</span><p>
@@ -18,6 +26,8 @@
         <p><strong>Tocan odgovor: </strong>{{ pitanje.tocan }}</p>
         <p><strong>Hint: </strong>{{ pitanje.savjet }}</p>
 
+        <a href="{% url 'main:update_pitanje' pitanje.id %}"> Update</a>
+        <a href="{% url 'main:delete_pitanje' pitanje.id %}"> Delete</a>
     </div>
 {% endfor %}
 {% endblock %}
