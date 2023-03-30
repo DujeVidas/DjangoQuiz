@@ -9,5 +9,10 @@ Zadatak: Django model Kviza
                 generirani testni podaci
                 entiteti prikazani generičkim pogledima
 
+Zavrsni Ispit:
+                CRUD
+                Testovi
+                Malo CSS
+                Autorizacija
 Student: Duje Vidas
 
