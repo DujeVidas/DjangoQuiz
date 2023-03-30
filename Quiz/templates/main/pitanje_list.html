@@ -1,16 +1,21 @@
 {% extends "base_generic.html" %}
 {% load bootstrap %}
 {% block content %}
-<br>
-<h2> Pitanja </h2>
-<br>
-<a href="{% url 'main:create_pitanje' %}" class="btn btn-success">Create Question</a>
-<br>
-<br>
-<form method="get">
-    {{ filter.form|bootstrap }}
-    <button class="btn btn-info" type="submit">Search</button>
-</form>
+<div class="nav d-flex flex-column align-items-center">
+    <br>
+    <h2> Pitanja </h2>
+    <br>
+    <a href="{% url 'main:create_pitanje' %}" class="btn btn-success">Create Question</a>
+    <br>
+    <br>
+</div>
+
+<div class="nav d-flex flex-column align-items-center">
+    <form method="get"  >
+        {{ filter.form|bootstrap }}
+        <button type="submit" class="btn btn-info">Search</button>
+    </form>
+</div>
 {% for pitanje in filter.qs %}
     <div class="pitanje">
         <p><strong>Naziv Pitanja:</strong> <span class="naziv">{{ pitanje.naziv }}</span></p>

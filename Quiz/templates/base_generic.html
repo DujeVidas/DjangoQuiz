@@ -5,22 +5,24 @@
 
 <head>
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="{% static 'main\css\mdb.dark.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main\css\mdb.min.css' %}">
     <title>{% block title %}Library{% endblock %}</title>
 </head>
 
 <body>
     {% if user.is_authenticated %}
-    <h1>My library</h1>
-    
-    <form action="{% url 'main:register' %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-primary" name="logout">Logout</button>
-    </form>
+    <h1 class="nav justify-content-center">My library</h1>
+    <div class="nav justify-content-center">
+        <form action="{% url 'main:register' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary" name="logout">Logout</button>
+        </form>
+    </div>
+   
 
     <div id="sidebar">
         {% block sidebar %}
-        <ul class="nav justify-content-center">
+        <ul class="nav justify-content-center  navbar navbar-expand-lg navbar-dark">
             <li><a href="/" class="nav-link">Home</a></li>
             <li><a href="/kategorije" class="nav-link">Kategorije</a></li>
             <li><a href="/kvizovi" class="nav-link">Kvizovi</a></li>

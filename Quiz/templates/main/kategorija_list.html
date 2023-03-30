@@ -1,14 +1,16 @@
 {% extends "base_generic.html" %}
 {% load bootstrap %}
 {% block content %}
-<br>
-<h2> Kategorije </h2>
-<br>
-<a href="{% url 'main:create_kategorija' %}" class="btn btn-success">Create Category</a>
-<br>
-<br>
-<div class="container">
-    <form method="get">
+<div class="nav d-flex flex-column align-items-center">
+    <h2>Kategorije</h2>
+    <br>
+    <a href="{% url 'main:create_kategorija' %}" class="btn btn-success ">Create Category</a>
+    <br>
+    <br>
+</div>
+
+<div class="nav d-flex flex-column align-items-center">
+    <form method="get" >
         {{ filter.form|bootstrap }}
         <button type="submit" class="btn btn-info">Search</button>
     </form>

@@ -1,16 +1,22 @@
 {% extends "base_generic.html" %}
 {% load bootstrap %}
 {% block content %}
-<br>
-<h2> Kvizovi </h2>
-<br>
-<a href="{% url 'main:create_kviz' %} " class="btn btn-success">Create Quiz</a>
-<br>
-<br>
-<form method="get">
-    {{ filter.form|bootstrap }}
-    <button type="submit" class="btn btn-info">Search</button>
-</form>
+
+<div class="nav d-flex flex-column align-items-center">
+    <br>
+    <h2> Kvizovi </h2>
+    <br>
+    <a href="{% url 'main:create_kviz' %} " class="btn btn-success">Create Quiz</a>
+    <br>
+    <br>
+</div>
+
+<div class="nav d-flex flex-column align-items-center">
+    <form method="get" >
+        {{ filter.form|bootstrap }}
+        <button type="submit" class="btn btn-info">Search</button>
+    </form>
+</div>
 {% for kviz in filter.qs %}
     <div class="kviz">
         <p><strong>Naslov Kviza: </strong> <span class="naslov"> {{ kviz.naziv }}</span></p>
